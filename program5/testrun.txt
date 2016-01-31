@@ -1,0 +1,188 @@
+//Katerina Chinnappan
+//CIS 35A, Section 61Y
+//Assignment #3
+//Test Run
+//Due: 1/27/2016
+//Handed: 1/26/2016
+
+
+	 Store 0
+
+ ///////////////////////
+	 Week 0
+	 Total Week Sales: 16419.52
+	 Total Average Week Sales: 2345.6458
+
+ ~~~~
+	 Week 1
+	 Total Week Sales: 20615.0
+	 Total Average Week Sales: 2945.0
+
+ ~~~~
+	 Week 2
+	 Total Week Sales: 24878.0
+	 Total Average Week Sales: 3554.0
+
+ ~~~~
+	 Week 3
+	 Total Week Sales: 29141.0
+	 Total Average Week Sales: 4163.0
+
+ ~~~~
+	 Week 4
+	 Total Week Sales: 33404.0
+	 Total Average Week Sales: 4772.0
+
+ ~~~~
+
+
+Total Sales for All Weeks: 124457.516
+Avergae Weekly Sales: 24891.504
+Highest Week Sale: 4
+Lowest Week Sale: 0
+
+ ~~~~
+	 Store 1
+
+ ///////////////////////
+	 Week 0
+	 Total Week Sales: 12919.52
+	 Total Average Week Sales: 1845.6456
+
+ ~~~~
+	 Week 1
+	 Total Week Sales: 17115.0
+	 Total Average Week Sales: 2445.0
+
+ ~~~~
+	 Week 2
+	 Total Week Sales: 21378.0
+	 Total Average Week Sales: 3054.0
+
+ ~~~~
+	 Week 3
+	 Total Week Sales: 25641.0
+	 Total Average Week Sales: 3663.0
+
+ ~~~~
+	 Week 4
+	 Total Week Sales: 29904.0
+	 Total Average Week Sales: 4272.0
+
+ ~~~~
+
+
+Total Sales for All Weeks: 106957.516
+Avergae Weekly Sales: 21391.504
+Highest Week Sale: 4
+Lowest Week Sale: 0
+
+ ~~~~
+	 Store 2
+
+ ///////////////////////
+	 Week 0
+	 Total Week Sales: 19919.52
+	 Total Average Week Sales: 2845.6458
+
+ ~~~~
+	 Week 1
+	 Total Week Sales: 24115.0
+	 Total Average Week Sales: 3445.0
+
+ ~~~~
+	 Week 2
+	 Total Week Sales: 28378.0
+	 Total Average Week Sales: 4054.0
+
+ ~~~~
+	 Week 3
+	 Total Week Sales: 32641.0
+	 Total Average Week Sales: 4663.0
+
+ ~~~~
+	 Week 4
+	 Total Week Sales: 36904.0
+	 Total Average Week Sales: 5272.0
+
+ ~~~~
+
+
+Total Sales for All Weeks: 141957.52
+Avergae Weekly Sales: 28391.504
+Highest Week Sale: 4
+Lowest Week Sale: 0
+
+ ~~~~
+	 Store 3
+
+ ///////////////////////
+	 Week 0
+	 Total Week Sales: 23573.38
+	 Total Average Week Sales: 3367.6257
+
+ ~~~~
+	 Week 1
+	 Total Week Sales: 27768.861
+	 Total Average Week Sales: 3966.9802
+
+ ~~~~
+	 Week 2
+	 Total Week Sales: 32031.861
+	 Total Average Week Sales: 4575.98
+
+ ~~~~
+	 Week 3
+	 Total Week Sales: 36294.86
+	 Total Average Week Sales: 5184.98
+
+ ~~~~
+	 Week 4
+	 Total Week Sales: 40557.86
+	 Total Average Week Sales: 5793.98
+
+ ~~~~
+
+
+Total Sales for All Weeks: 160226.81
+Avergae Weekly Sales: 32045.363
+Highest Week Sale: 4
+Lowest Week Sale: 0
+
+ ~~~~
+	 Store 4
+
+ ///////////////////////
+	 Week 0
+	 Total Week Sales: 16459.07
+	 Total Average Week Sales: 2351.2957
+
+ ~~~~
+	 Week 1
+	 Total Week Sales: 20654.55
+	 Total Average Week Sales: 2950.6501
+
+ ~~~~
+	 Week 2
+	 Total Week Sales: 24917.55
+	 Total Average Week Sales: 3559.6501
+
+ ~~~~
+	 Week 3
+	 Total Week Sales: 29180.55
+	 Total Average Week Sales: 4168.65
+
+ ~~~~
+	 Week 4
+	 Total Week Sales: 33443.55
+	 Total Average Week Sales: 4777.65
+
+ ~~~~
+
+
+Total Sales for All Weeks: 124655.266
+Avergae Weekly Sales: 24931.053
+Highest Week Sale: 4
+Lowest Week Sale: 0
+
+ ~~~~
