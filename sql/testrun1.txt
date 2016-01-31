@@ -1,0 +1,344 @@
+SQL>  SELECT EMP1.EMPNO AS "Employee Number", EMP1.ENAME AS "Employee Name", EMP1.HIREDATE AS "HIredate", EMP2.ENAME AS "Manager"
+  2    FROM EMP EMP1
+  3    INNER JOIN EMP EMP2
+  ON EMP1.MGR  = EMP2.EMPNO
+  WHERE EMP2.ENAME LIKE 'K%'
+  OR EMP2.ENAME LIKE 'M%'
+  OR EMP2.ENAME LIKE 'S%';
+  4    5    6    7
+
+ SELECT E.ENAME AS "Employee Name", E.EMPNO, C.EMPNO, D.DEPTNO AS "Department Num", D.DNAME AS "Department Name"
+   FROM EMP E
+   INNER JOIN DEPT D
+   ON E.DEPTNO = D.DEPTNO
+   INNER JOIN EMP C
+   ON E.EMPNO <> C.EMPNO
+   ORDER BY E.ENAME, D.DEPTNO, D.DNAME;
+
+
+ SELECT EMP.ENAME, EMP.JOB, EMP.DEPTNO, DEPT.LOC
+  FROM EMP
+  INNER JOIN DEPT
+  ON EMP.DEPTNO = DEPT.DEPTNO
+  WHERE EMP.JOB LIKE 'CLERK%';
+
+ INSERT INTO DEPT (DEPTNO, DNAME, LOC)
+  VALUES (50, 'TRAINING', 'SAN FRANCISCO');
+
+SELECT EMP.EMPNO, EMP.ENAME, DEPT.DNAME, DEPT.LOC
+  FROM EMP
+  RIGHT JOIN DEPT
+  ON EMP.DEPTNO = DEPT.DEPTNO
+  WHERE DEPT.DEPTNO LIKE '50%'
+  OR DEPT.DEPTNO LIKE '20%';
+
+ INSERT INTO EMP2 (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM)
+  VALUES (7612, 'LEBEDEV', 'MANAGER', 7839, '31-DEC-1980', 2975, 0);
+
+SELECT EMP2.EMPNO, EMP2.ENAME, DEPT.DEPTNO, DEPT.DNAME, DEPT.LOC
+  FROM EMP2
+  FULL OUTER JOIN DEPT
+  ON EMP2.DEPTNO = DEPT.DEPTNO;
+
+
+
+
+
+
+
+
+Employee Number Employee N HIredate  Manager
+--------------- ---------- --------- ----------
+           7876 ADAMS      12-JAN-83 SCOTT
+           7698 BLAKE      01-MAY-81 KING
+           7782 CLARK      09-JUN-81 KING
+           7566 JONES      02-APR-81 KING
+
+SQL> SQL> SQL>   2    3    4    5    6    7
+Employee N      EMPNO      EMPNO Department Num Department Nam
+---------- ---------- ---------- -------------- --------------
+ADAMS            7876       7499             20 RESEARCH
+ADAMS            7876       7521             20 RESEARCH
+ADAMS            7876       7566             20 RESEARCH
+ADAMS            7876       7654             20 RESEARCH
+ADAMS            7876       7698             20 RESEARCH
+ADAMS            7876       7782             20 RESEARCH
+ADAMS            7876       7369             20 RESEARCH
+ADAMS            7876       7839             20 RESEARCH
+ADAMS            7876       7844             20 RESEARCH
+ADAMS            7876       7900             20 RESEARCH
+ADAMS            7876       7902             20 RESEARCH
+
+Employee N      EMPNO      EMPNO Department Num Department Nam
+---------- ---------- ---------- -------------- --------------
+ADAMS            7876       7934             20 RESEARCH
+ADAMS            7876       7788             20 RESEARCH
+ALLEN            7499       7369             30 SALES
+ALLEN            7499       7521             30 SALES
+ALLEN            7499       7566             30 SALES
+ALLEN            7499       7654             30 SALES
+ALLEN            7499       7698             30 SALES
+ALLEN            7499       7782             30 SALES
+ALLEN            7499       7788             30 SALES
+ALLEN            7499       7839             30 SALES
+ALLEN            7499       7844             30 SALES
+
+Employee N      EMPNO      EMPNO Department Num Department Nam
+---------- ---------- ---------- -------------- --------------
+ALLEN            7499       7876             30 SALES
+ALLEN            7499       7900             30 SALES
+ALLEN            7499       7934             30 SALES
+ALLEN            7499       7902             30 SALES
+BLAKE            7698       7934             30 SALES
+BLAKE            7698       7902             30 SALES
+BLAKE            7698       7900             30 SALES
+BLAKE            7698       7876             30 SALES
+BLAKE            7698       7844             30 SALES
+BLAKE            7698       7839             30 SALES
+BLAKE            7698       7369             30 SALES
+
+Employee N      EMPNO      EMPNO Department Num Department Nam
+---------- ---------- ---------- -------------- --------------
+BLAKE            7698       7782             30 SALES
+BLAKE            7698       7654             30 SALES
+BLAKE            7698       7566             30 SALES
+BLAKE            7698       7521             30 SALES
+BLAKE            7698       7499             30 SALES
+BLAKE            7698       7788             30 SALES
+CLARK            7782       7934             10 ACCOUNTING
+CLARK            7782       7902             10 ACCOUNTING
+CLARK            7782       7900             10 ACCOUNTING
+CLARK            7782       7876             10 ACCOUNTING
+CLARK            7782       7844             10 ACCOUNTING
+
+Employee N      EMPNO      EMPNO Department Num Department Nam
+---------- ---------- ---------- -------------- --------------
+CLARK            7782       7839             10 ACCOUNTING
+CLARK            7782       7369             10 ACCOUNTING
+CLARK            7782       7698             10 ACCOUNTING
+CLARK            7782       7654             10 ACCOUNTING
+CLARK            7782       7566             10 ACCOUNTING
+CLARK            7782       7521             10 ACCOUNTING
+CLARK            7782       7499             10 ACCOUNTING
+CLARK            7782       7788             10 ACCOUNTING
+FORD             7902       7934             20 RESEARCH
+FORD             7902       7900             20 RESEARCH
+FORD             7902       7876             20 RESEARCH
+
+Employee N      EMPNO      EMPNO Department Num Department Nam
+---------- ---------- ---------- -------------- --------------
+FORD             7902       7844             20 RESEARCH
+FORD             7902       7839             20 RESEARCH
+FORD             7902       7788             20 RESEARCH
+FORD             7902       7369             20 RESEARCH
+FORD             7902       7698             20 RESEARCH
+FORD             7902       7654             20 RESEARCH
+FORD             7902       7566             20 RESEARCH
+FORD             7902       7521             20 RESEARCH
+FORD             7902       7499             20 RESEARCH
+FORD             7902       7782             20 RESEARCH
+JAMES            7900       7499             30 SALES
+
+Employee N      EMPNO      EMPNO Department Num Department Nam
+---------- ---------- ---------- -------------- --------------
+JAMES            7900       7521             30 SALES
+JAMES            7900       7566             30 SALES
+JAMES            7900       7654             30 SALES
+JAMES            7900       7698             30 SALES
+JAMES            7900       7782             30 SALES
+JAMES            7900       7369             30 SALES
+JAMES            7900       7839             30 SALES
+JAMES            7900       7844             30 SALES
+JAMES            7900       7876             30 SALES
+JAMES            7900       7902             30 SALES
+JAMES            7900       7934             30 SALES
+
+Employee N      EMPNO      EMPNO Department Num Department Nam
+---------- ---------- ---------- -------------- --------------
+JAMES            7900       7788             30 SALES
+JONES            7566       7369             20 RESEARCH
+JONES            7566       7499             20 RESEARCH
+JONES            7566       7521             20 RESEARCH
+JONES            7566       7654             20 RESEARCH
+JONES            7566       7698             20 RESEARCH
+JONES            7566       7782             20 RESEARCH
+JONES            7566       7788             20 RESEARCH
+JONES            7566       7839             20 RESEARCH
+JONES            7566       7844             20 RESEARCH
+JONES            7566       7876             20 RESEARCH
+
+Employee N      EMPNO      EMPNO Department Num Department Nam
+---------- ---------- ---------- -------------- --------------
+JONES            7566       7900             20 RESEARCH
+JONES            7566       7934             20 RESEARCH
+JONES            7566       7902             20 RESEARCH
+KING             7839       7934             10 ACCOUNTING
+KING             7839       7902             10 ACCOUNTING
+KING             7839       7900             10 ACCOUNTING
+KING             7839       7876             10 ACCOUNTING
+KING             7839       7844             10 ACCOUNTING
+KING             7839       7788             10 ACCOUNTING
+KING             7839       7369             10 ACCOUNTING
+KING             7839       7698             10 ACCOUNTING
+
+Employee N      EMPNO      EMPNO Department Num Department Nam
+---------- ---------- ---------- -------------- --------------
+KING             7839       7654             10 ACCOUNTING
+KING             7839       7566             10 ACCOUNTING
+KING             7839       7521             10 ACCOUNTING
+KING             7839       7499             10 ACCOUNTING
+KING             7839       7782             10 ACCOUNTING
+MARTIN           7654       7934             30 SALES
+MARTIN           7654       7902             30 SALES
+MARTIN           7654       7900             30 SALES
+MARTIN           7654       7876             30 SALES
+MARTIN           7654       7844             30 SALES
+MARTIN           7654       7839             30 SALES
+
+Employee N      EMPNO      EMPNO Department Num Department Nam
+---------- ---------- ---------- -------------- --------------
+MARTIN           7654       7369             30 SALES
+MARTIN           7654       7782             30 SALES
+MARTIN           7654       7698             30 SALES
+MARTIN           7654       7566             30 SALES
+MARTIN           7654       7521             30 SALES
+MARTIN           7654       7499             30 SALES
+MARTIN           7654       7788             30 SALES
+MILLER           7934       7902             10 ACCOUNTING
+MILLER           7934       7900             10 ACCOUNTING
+MILLER           7934       7876             10 ACCOUNTING
+MILLER           7934       7844             10 ACCOUNTING
+
+Employee N      EMPNO      EMPNO Department Num Department Nam
+---------- ---------- ---------- -------------- --------------
+MILLER           7934       7839             10 ACCOUNTING
+MILLER           7934       7788             10 ACCOUNTING
+MILLER           7934       7782             10 ACCOUNTING
+MILLER           7934       7698             10 ACCOUNTING
+MILLER           7934       7654             10 ACCOUNTING
+MILLER           7934       7566             10 ACCOUNTING
+MILLER           7934       7521             10 ACCOUNTING
+MILLER           7934       7499             10 ACCOUNTING
+MILLER           7934       7369             10 ACCOUNTING
+SCOTT            7788       7369             20 RESEARCH
+SCOTT            7788       7934             20 RESEARCH
+
+Employee N      EMPNO      EMPNO Department Num Department Nam
+---------- ---------- ---------- -------------- --------------
+SCOTT            7788       7902             20 RESEARCH
+SCOTT            7788       7900             20 RESEARCH
+SCOTT            7788       7876             20 RESEARCH
+SCOTT            7788       7844             20 RESEARCH
+SCOTT            7788       7839             20 RESEARCH
+SCOTT            7788       7782             20 RESEARCH
+SCOTT            7788       7698             20 RESEARCH
+SCOTT            7788       7654             20 RESEARCH
+SCOTT            7788       7566             20 RESEARCH
+SCOTT            7788       7521             20 RESEARCH
+SCOTT            7788       7499             20 RESEARCH
+
+Employee N      EMPNO      EMPNO Department Num Department Nam
+---------- ---------- ---------- -------------- --------------
+SMITH            7369       7499             20 RESEARCH
+SMITH            7369       7934             20 RESEARCH
+SMITH            7369       7902             20 RESEARCH
+SMITH            7369       7900             20 RESEARCH
+SMITH            7369       7876             20 RESEARCH
+SMITH            7369       7844             20 RESEARCH
+SMITH            7369       7521             20 RESEARCH
+SMITH            7369       7788             20 RESEARCH
+SMITH            7369       7782             20 RESEARCH
+SMITH            7369       7698             20 RESEARCH
+SMITH            7369       7654             20 RESEARCH
+
+Employee N      EMPNO      EMPNO Department Num Department Nam
+---------- ---------- ---------- -------------- --------------
+SMITH            7369       7566             20 RESEARCH
+SMITH            7369       7839             20 RESEARCH
+TURNER           7844       7369             30 SALES
+TURNER           7844       7499             30 SALES
+TURNER           7844       7521             30 SALES
+TURNER           7844       7566             30 SALES
+TURNER           7844       7654             30 SALES
+TURNER           7844       7698             30 SALES
+TURNER           7844       7782             30 SALES
+TURNER           7844       7788             30 SALES
+TURNER           7844       7839             30 SALES
+
+Employee N      EMPNO      EMPNO Department Num Department Nam
+---------- ---------- ---------- -------------- --------------
+TURNER           7844       7876             30 SALES
+TURNER           7844       7900             30 SALES
+TURNER           7844       7934             30 SALES
+TURNER           7844       7902             30 SALES
+WARD             7521       7499             30 SALES
+WARD             7521       7566             30 SALES
+WARD             7521       7654             30 SALES
+WARD             7521       7698             30 SALES
+WARD             7521       7782             30 SALES
+WARD             7521       7788             30 SALES
+WARD             7521       7369             30 SALES
+
+Employee N      EMPNO      EMPNO Department Num Department Nam
+---------- ---------- ---------- -------------- --------------
+WARD             7521       7844             30 SALES
+WARD             7521       7876             30 SALES
+WARD             7521       7900             30 SALES
+WARD             7521       7902             30 SALES
+WARD             7521       7934             30 SALES
+WARD             7521       7839             30 SALES
+
+182 rows selected.
+
+SQL> SQL> SQL>   2    3    4    5
+ENAME      JOB           DEPTNO LOC
+---------- --------- ---------- -------------
+MILLER     CLERK             10 NEW YORK
+SMITH      CLERK             20 DALLAS
+ADAMS      CLERK             20 DALLAS
+JAMES      CLERK             30 CHICAGO
+
+
+
+SQL> SQL>   2    3    4    5    6
+     EMPNO ENAME      DNAME          LOC
+---------- ---------- -------------- -------------
+      7876 ADAMS      RESEARCH       DALLAS
+      7788 SCOTT      RESEARCH       DALLAS
+      7369 SMITH      RESEARCH       DALLAS
+      7902 FORD       RESEARCH       DALLAS
+      7566 JONES      RESEARCH       DALLAS
+                      TRAINING       SAN FRANCISCO
+
+6 rows selected.
+
+SQL> SQL>   2
+1 row created.
+
+SQL> SQL>   2    3    4
+     EMPNO ENAME          DEPTNO DNAME          LOC
+---------- ---------- ---------- -------------- -------------
+      7839 KING               10 ACCOUNTING     NEW YORK
+      7698 BLAKE              30 SALES          CHICAGO
+      7782 CLARK              10 ACCOUNTING     NEW YORK
+      7566 JONES              20 RESEARCH       DALLAS
+      7654 MARTIN             30 SALES          CHICAGO
+      7499 ALLEN              30 SALES          CHICAGO
+      7844 TURNER             30 SALES          CHICAGO
+      7900 JAMES              30 SALES          CHICAGO
+      7521 WARD               30 SALES          CHICAGO
+      7902 FORD               20 RESEARCH       DALLAS
+      7369 SMITH              20 RESEARCH       DALLAS
+
+     EMPNO ENAME          DEPTNO DNAME          LOC
+---------- ---------- ---------- -------------- -------------
+      7788 SCOTT
+      7876 ADAMS
+      7934 MILLER
+      7612 LEBEDEV
+                              50 TRAINING       SAN FRANCISCO
+                              40 OPERATIONS     BOSTON
+
+17 rows selected.
+
+SQL> SQL> SQL> SQL> SQL> SQL> SQL> SQL>

@@ -1,0 +1,232 @@
+ SELECT A.MGR, MIN (A.SAL)
+  FROM EMP A, EMP B
+  WHERE A.MGR = B.EMPNO
+  GROUP BY A.MGR
+  ORDER BY 2 DESC;
+
+ SELECT D.DNAME AS DNAME, D.LOC AS LOC, COUNT (E.DEPTNO) AS
+"Number of People", ROUND (AVG(E.SAL), 2) AS "Salary"
+  2    3    4    5
+       MGR MIN(A.SAL)
+---------- ----------
+      7566       3000
+      7839       2450
+      7782       1300
+      7788       1100
+      7698        950
+      7902        800
+
+6 rows selected.
+
+SQL> SQL>   2    3    FROM DEPT D, EMP E
+  4    WHERE D.DEPTNO = E.DEPTNO
+  GROUP BY D.DNAME, D.LOC, E.DEPTNO;
+
+  5
+DNAME          LOC           Number of People     Salary
+-------------- ------------- ---------------- ----------
+ACCOUNTING     NEW YORK                     3    2916.67
+SALES          CHICAGO                      6    1566.67
+RESEARCH       DALLAS                       5       2175
+
+SQL> SQL>  SELECT X.*,
+  SG.GRADE AS "SAL GRADE"
+  FROM
+  (
+  SELECT D.DNAME AS "DEPT",
+  MIN(NVL(E.SAL,0)) AS "MIN SAL",
+  AVG(NVL(E.COMM,0)) AS "AVERAGE COMM"
+  FROM DEPT D
+  LEFT JOIN EMP E
+ ON D.DEPTNO = E.DEPTNO
+ GROUP BY D.DNAME, D.DEPTNO
+ ) X
+ JOIN SALGRADE SG
+ ON "MIN SAL" BETWEEN SG.LOSAL AND SG.HISAL;
+
+
+    FROM EMP
+  2    3    4    5    6    7    8    9   10   11   12   13   14
+DEPT              MIN SAL AVERAGE COMM  SAL GRADE
+-------------- ---------- ------------ ----------
+RESEARCH              800            0          1
+SALES                 950   366.666667          1
+ACCOUNTING           1300            0          2
+
+SQL> SQL> SQL> SP2-0042: unknown command "FROM EMP" - rest of line ignored.
+SQL>     WHERE SAL > 1000;
+
+
+
+
+ SELECT COUNT (ENAME) AS "EMPLOYEE"
+   FROM EMP
+   WHERE SAL < 2000;
+
+
+
+
+SELECT COUNT (DISTINCT DEPTNO) AS "DEPARTMENT"
+    FROM EMP
+    WHERE SAL > 2500;
+
+
+
+
+ SELECT COUNT(ALL(ENAME)) AS "ALL EMPLOYEES"
+   FROM EMP;
+
+
+
+SP2-0734: unknown command beginning "WHERE SAL ..." - rest of line ignored.
+SQL> SQL> SQL> SQL> SQL>   2    3
+  EMPLOYEE
+----------
+         8
+
+SQL> SQL> SQL> SQL> SQL>   2    3
+DEPARTMENT
+----------
+         3
+
+SQL> SQL> SQL> SQL> SQL>   2
+ALL EMPLOYEES
+-------------
+           14
+
+SQL> SQL> SQL> SQL>  SELECT EMPNO, ENAME, SAL, ROUND(SAL * 1.15, 0) "NEW SALARY"
+  FROM EMP;
+
+
+  2
+     EMPNO ENAME             SAL NEW SALARY
+---------- ---------- ---------- ----------
+      7839 KING             5000       5750
+      7698 BLAKE            2850       3278
+      7782 CLARK            2450       2818
+      7566 JONES            2975       3421
+      7654 MARTIN           1250       1438
+      7499 ALLEN            1600       1840
+      7844 TURNER           1500       1725
+      7900 JAMES             950       1093
+      7521 WARD             1250       1438
+      7902 FORD             3000       3450
+      7369 SMITH             800        920
+
+     EMPNO ENAME             SAL NEW SALARY
+---------- ---------- ---------- ----------
+      7788 SCOTT            3000       3450
+      7876 ADAMS            1100       1265
+      7934 MILLER           1300       1495
+
+14 rows selected.
+
+SQL> SQL> SQL>
+
+SQL> SELECT A.MGR, MIN (A.SAL)
+  FROM EMP A, EMP B
+  WHERE A.MGR = B.EMPNO
+  GROUP BY A.MGR
+  ORDER BY 2 DESC;  2    3    4    5
+
+       MGR MIN(A.SAL)
+---------- ----------
+      7566       3000
+      7839       2450
+      7782       1300
+      7788       1100
+      7698        950
+      7902        800
+
+6 rows selected.
+
+SQL> SELECT D.DNAME AS DNAME, D.LOC AS LOC, COUNT (E.DEPTNO) AS
+"Number of People", ROUND (AVG(E.SAL), 2) AS "Salary"
+  FROM DEPT D, EMP E
+  WHERE D.DEPTNO = E.DEPTNO
+  GROUP BY D.DNAME, D.LOC, E.DEPTNO;  2    3    4    5
+
+DNAME          LOC           Number of People     Salary
+-------------- ------------- ---------------- ----------
+ACCOUNTING     NEW YORK                     3    2916.67
+SALES          CHICAGO                      6    1566.67
+RESEARCH       DALLAS                       5       2175
+
+SQL> SELECT X.*,
+  2    SG.GRADE AS "SAL GRADE"
+  FROM
+  (
+  3    4    5    SELECT D.DNAME AS "DEPT",
+  MIN(NVL(E.SAL,0)) AS "MIN SAL",
+  AVG(NVL(E.COMM,0)) AS "AVERAGE COMM"
+  FROM DEPT D
+  LEFT JOIN EMP E
+ ON D.DEPTNO = E.DEPTNO
+ GROUP BY D.DNAME, D.DEPTNO
+  6    7   ) X
+ JOIN SALGRADE SG
+  8    9   10   11   ON "MIN SAL" BETWEEN SG.LOSAL AND SG.HISAL; 12   13   14
+
+DEPT              MIN SAL AVERAGE COMM  SAL GRADE
+-------------- ---------- ------------ ----------
+RESEARCH              800            0          1
+SALES                 950   366.666667          1
+ACCOUNTING           1300            0          2
+
+SQL> SELECT COUNT(*) AS "VALUE"
+   FROM EMP
+   WHERE SAL > 1000;  2    3
+
+     VALUE
+----------
+        12
+
+SQL> SELECT COUNT (ENAME) AS "EMPLOYEE"
+    FROM EMP
+    WHERE SAL < 2000;  2    3
+
+  EMPLOYEE
+----------
+         8
+
+SQL> SELECT COUNT (DISTINCT DEPTNO) AS "DEPARTMENT"
+   FROM EMP
+   WHERE SAL > 2500;  2    3
+
+DEPARTMENT
+----------
+         3
+
+SQL> SELECT COUNT(ALL(ENAME)) AS "ALL EMPLOYEES"
+   FROM EMP;  2
+
+ALL EMPLOYEES
+-------------
+           14
+
+SQL> SELECT EMPNO, ENAME, SAL, ROUND(SAL * 1.15, 0) "NEW SALARY"
+  FROM EMP;  2
+
+     EMPNO ENAME             SAL NEW SALARY
+---------- ---------- ---------- ----------
+      7839 KING             5000       5750
+      7698 BLAKE            2850       3278
+      7782 CLARK            2450       2818
+      7566 JONES            2975       3421
+      7654 MARTIN           1250       1438
+      7499 ALLEN            1600       1840
+      7844 TURNER           1500       1725
+      7900 JAMES             950       1093
+      7521 WARD             1250       1438
+      7902 FORD             3000       3450
+      7369 SMITH             800        920
+
+     EMPNO ENAME             SAL NEW SALARY
+---------- ---------- ---------- ----------
+      7788 SCOTT            3000       3450
+      7876 ADAMS            1100       1265
+      7934 MILLER           1300       1495
+
+14 rows selected.
+
+SQL>
