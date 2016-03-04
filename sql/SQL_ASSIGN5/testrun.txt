@@ -1,0 +1,240 @@
+
+SQL> select ENAME,
+    SAL,
+    lpad('*',trunc(SAL/100),'*') EMPLOYEE_AND_THEIR_SALARIES
+    FROM EMP;  2    3    4
+
+ENAME             SAL
+---------- ----------
+EMPLOYEE_AND_THEIR_SALARIES
+--------------------------------------------------------------------------------
+KING             5000
+**************************************************
+
+BLAKE            2850
+****************************
+
+CLARK            2450
+************************
+
+
+ENAME             SAL
+---------- ----------
+EMPLOYEE_AND_THEIR_SALARIES
+--------------------------------------------------------------------------------
+JONES            2975
+*****************************
+
+MARTIN           1250
+************
+
+ALLEN            1600
+****************
+
+
+ENAME             SAL
+---------- ----------
+EMPLOYEE_AND_THEIR_SALARIES
+--------------------------------------------------------------------------------
+TURNER           1500
+***************
+
+JAMES             950
+*********
+
+WARD             1250
+************
+
+
+ENAME             SAL
+---------- ----------
+EMPLOYEE_AND_THEIR_SALARIES
+--------------------------------------------------------------------------------
+FORD             3000
+******************************
+
+SMITH             800
+********
+
+SCOTT            3000
+******************************
+
+
+ENAME             SAL
+---------- ----------
+EMPLOYEE_AND_THEIR_SALARIES
+--------------------------------------------------------------------------------
+ADAMS            1100
+***********
+
+MILLER           1300
+*************
+
+JANKOWSKI        1500
+***************
+
+
+15 rows selected.
+
+SQL>  SELECT ENAME AS NAME, SUBSTR(LOWER(ENAME), 1, 2) AS USERNAME, HIREDATE AS HIREDATE, ROUND(SAL) AS SALARY, TO_CHAR(ADD_MONTHS(HIREDATE, 6), 'MM/DD/YY') AS REVIEW
+    FROM EMP;  2
+
+NAME       USERNAME HIREDATE      SALARY REVIEW
+---------- -------- --------- ---------- --------
+KING       ki       17-NOV-81       5000 05/17/82
+BLAKE      bl       01-MAY-81       2850 11/01/81
+CLARK      cl       09-JUN-81       2450 12/09/81
+JONES      jo       02-APR-81       2975 10/02/81
+MARTIN     ma       28-SEP-81       1250 03/28/82
+ALLEN      al       20-FEB-81       1600 08/20/81
+TURNER     tu       08-SEP-81       1500 03/08/82
+JAMES      ja       03-DEC-81        950 06/03/82
+WARD       wa       22-FEB-81       1250 08/22/81
+FORD       fo       03-DEC-81       3000 06/03/82
+SMITH      sm       17-DEC-80        800 06/17/81
+
+NAME       USERNAME HIREDATE      SALARY REVIEW
+---------- -------- --------- ---------- --------
+SCOTT      sc       09-DEC-82       3000 06/09/83
+ADAMS      ad       12-JAN-83       1100 07/12/83
+MILLER     mi       23-JAN-82       1300 07/23/82
+JANKOWSKI  ja       12-FEB-81       1500 08/12/81
+
+15 rows selected.
+
+SQL> SELECT ENAME, EMPNO, SAL FROM EMP
+    WHERE SAL > 1000 AND DEPTNO IN
+    (SELECT DEPTNO FROM DEPT
+    WHERE LOC LIKE 'BOSTON%' AND DEPTNO LIKE '40%');  2    3    4
+
+ENAME           EMPNO        SAL
+---------- ---------- ----------
+JANKOWSKI        7123       1500
+
+SQL>
+ SELECT HIREDATE
+    FROM EMP
+    WHERE HIREDATE >='01-JAN-81' AND HIREDATE <='31-DEC-81';SQL>   2    3
+
+HIREDATE
+---------
+17-NOV-81
+01-MAY-81
+09-JUN-81
+02-APR-81
+28-SEP-81
+20-FEB-81
+08-SEP-81
+03-DEC-81
+22-FEB-81
+03-DEC-81
+12-FEB-81
+
+11 rows selected.
+
+SQL> SELECT * FROM EMP
+    WHERE DEPTNO = ANY (SELECT DEPTNO FROM DEPT
+    WHERE DEPT.DEPTNO = EMP.DEPTNO);  2    3
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850
+        30
+
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400
+        30
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0
+        30
+
+      7900 JAMES      CLERK           7698 03-DEC-81        950
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-DEC-81       3000
+        20
+
+      7369 SMITH      CLERK           7902 17-DEC-80        800
+        20
+
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7876 ADAMS      CLERK           7788 12-JAN-83       1100
+        20
+
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+      7123 JANKOWSKI  SALESMAN        7698 12-FEB-81       1500        300
+        40
+
+
+15 rows selected.
+
+SQL>  SELECT *
+    FROM ( SELECT ENAME, EMPNO, DEPTNO
+    FROM EMP
+    ) EMP, DEPT
+    WHERE DEPT.DEPTNO = EMP.DEPTNO;  2    3    4    5
+
+ENAME           EMPNO     DEPTNO     DEPTNO DNAME          LOC
+---------- ---------- ---------- ---------- -------------- -------------
+KING             7839         10         10 ACCOUNTING     NEW YORK
+BLAKE            7698         30         30 SALES          CHICAGO
+CLARK            7782         10         10 ACCOUNTING     NEW YORK
+JONES            7566         20         20 RESEARCH       DALLAS
+MARTIN           7654         30         30 SALES          CHICAGO
+ALLEN            7499         30         30 SALES          CHICAGO
+TURNER           7844         30         30 SALES          CHICAGO
+JAMES            7900         30         30 SALES          CHICAGO
+WARD             7521         30         30 SALES          CHICAGO
+FORD             7902         20         20 RESEARCH       DALLAS
+SMITH            7369         20         20 RESEARCH       DALLAS
+
+ENAME           EMPNO     DEPTNO     DEPTNO DNAME          LOC
+---------- ---------- ---------- ---------- -------------- -------------
+SCOTT            7788         20         20 RESEARCH       DALLAS
+ADAMS            7876         20         20 RESEARCH       DALLAS
+MILLER           7934         10         10 ACCOUNTING     NEW YORK
+JANKOWSKI        7123         40         40 OPERATIONS     BOSTON
+
+15 rows selected.
+
+SQL>
