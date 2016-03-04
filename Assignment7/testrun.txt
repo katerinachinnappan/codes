@@ -1,0 +1,58 @@
+//Katerina Chinnappan
+//CIS 35A, Section 61Y
+//Assignment #7
+//TEST RUN
+//Due: 3/05/2016
+//Handed: 2/25/2016
+
+
+You are in the Abstract Class!
+Enter your name:
+Katerina Chinnappan
+Enter your age:
+18
+Welcome Katerina Chinnappan Age 18
+
+Low Score 0
+Low Score 7
+Low Score 0
+Low Score 32
+Low Score 10
+
+High Score 100
+High Score 100
+High Score 100
+High Score 90
+High Score 80
+
+Average Score 46.2
+Average Score 42.333332
+Average Score 70.46667
+Average Score 75.666664
+Average Score 49.733334
+
+Type student SID for search (enter 1 to quit):
+1234
+Score: 52
+Score: 7
+Score: 100
+Score: 78
+Score: 34
+Type student SID for search (enter 1 to quit):
+2134
+Score: 90
+Score: 36
+Score: 90
+Score: 77
+Score: 30
+Type student SID for search (enter 1 to quit):
+3124
+Score: 100
+Score: 45
+Score: 20
+Score: 90
+Score: 70
+Type student SID for search (enter 1 to quit):
+1
+Good Bye...
+debugging enabled
