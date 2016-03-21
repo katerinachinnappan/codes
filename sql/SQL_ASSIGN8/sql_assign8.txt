@@ -1,0 +1,66 @@
+1)
+INSERT INTO COLLEGE (COLLEGEID, CNAME)
+VALUES (11111111, 'WEST VALLEY COLLEGE');
+
+INSERT INTO LOCATION (LID, LOC)
+VALUES (11111111, 'ATC-SM-7');
+
+INSERT INTO DEPARTMENT (DID, DNAME, LID, COLLEGEID)
+VALUES (11111111, 'CIS', 11111111, 11111111);
+
+INSERT INTO COURSE (COID, CNAME, DID)
+VALUES (11111111, 'INTRO TO WEB DESIGN', 11111111);
+
+INSERT INTO SECTION(SECID, SECNUM, LID, COID, STIME, ETIME)
+VALUES (11111111, '02', 11111111, 11111111, '13:00', '15:00');
+
+INSERT INTO SECTION (SECID, SECNUM, LID, COID, STIME, ETIME)
+VALUES (11111111, 03, 11111111, 111111111, '14:00', '16:00');
+
+COMMIT;
+
+SELECT D.DNAME, C.CNAME, S.SECNUM, S.STIME, S.ETIME
+FROM DEPARTMENT D
+INNER JOIN COURSE C 
+ON D.DID = C.DID
+INNER JOIN SECTION S
+ON C.COID = S.COID;
+
+2)
+
+INSERT INTO USER(ID NAME, EMAIL, ADDRESS, PHONE, SID, COLLEGEID)
+VALUES (11189292, 'ANDREI SOKOLOWSKI', 'ADNREI@MAIL.RU', '1234 ABC AVENUE', 
+'70114763412', 11111111, 11111111);
+
+INSERT INTO PAYMENT(PID, PRICE, ID)
+VALUES (11111111, 300, 11189292);
+
+INSERT INTO STUREG (STUREGID, PID, SECID, ID)
+VALUES (1000000,11111111, 11111111, 11189292);
+
+COMMIT;
+
+SELECT U.ID, U.NAME, U.EMAIL, U.ADDRESS, U.PHONE, P.PID, P.PRICE, S.STUREGID
+FROM USER U
+INNER JOIN PAYMENT P
+ON U.ID = P.ID
+INNER JOIN STUREG S
+ON P.PID = S.PID;
+
+3) I predict that since this is a college database, there will be many colleges
+registered in this field. I think there should be indexes for the college field
+and particulary for the ID, LID since they are foreign keys to a lot of tables.
+
+I also think that we should add a FACULTY table and the courses they teach since
+it is also part of a student registration. I would make the faculty id a primary
+key and a foreign key in many tables, especially in COURSE and USER.
+
+My 3rd suggestion would be to add some kind of function
+which calculates the total amount a specific student must pay. For example,
+one student registers many types for different classes, obviously he/she will
+have to pay for each class seperately. It would be really nice if there was an
+option to display the total balance due for a student.
+
+My 4th and last suggestion would be to make a DEADLINE table. The deadline table
+would have information about important deadlines, and also a deadline function
+which would display if a specific student didn't meet the deadline. 
