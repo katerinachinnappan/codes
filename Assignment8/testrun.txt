@@ -1,0 +1,27 @@
+//Katerina Chinnappan
+//CIS 35A, Section 61Y
+//Assignment #8
+//Due: 3/12/2016
+//Handed: 3/05/16
+
+Please enter side1: 
+1
+Please enter side2: 
+1.5
+Please enter side3: 
+1
+Please enter the color: 
+pink
+Please enter filled or not filled(true/false) : 
+false
+
+The area is: 0.49607837082461076
+The perimeter is: 3.5
+The color is: pink
+Traingle is not filled : Boolean Value - false
+
+
+Triangle:
+side1 = 1.0
+side2 = 1.5
+side3 = 1.0
